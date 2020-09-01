@@ -1,0 +1,268 @@
+//main containers
+.container {
+ 
+    @include respond(tab-land) {
+        max-width: none !important;
+        padding: 0 !important;
+    }
+}
+
+.content {
+    display: flex;
+    margin-top: 5rem;
+    border-radius: 1rem; 
+    box-shadow: $shadow-dark;
+
+    @include respond(tab-land) {
+        margin: 0;
+        padding: 0;  
+    }
+
+    @include respond(tab-port) {
+        flex-direction: column;
+    }
+
+    
+}
+
+.side-bar {
+    background-color: $color-grey-dark-1;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 20%;
+}
+
+.project-view {
+    background-color: $color-grey-light-1;
+    flex: 1;  
+}
+
+.heading-primary {
+    font-size: 2.5rem;  
+    color: $color-grey-light-1;
+    text-align: center;
+    margin-top: 2rem;  
+
+    &--dark {
+        color: $color-grey-dark-1;
+    }
+}
+
+//search part
+
+.search {  
+    color: $color-grey-light-1;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex: 0 0 40%;
+    margin-top: 3rem; 
+    
+    &__input {
+        font-family: inherit;
+        font-size: inherit;
+        border-radius: 100px;
+        border: none;
+        width: 50%;
+        padding: .7rem 2rem; 
+        background-color: $color-grey-light-2;
+        transition: all .3s ease;
+        margin-right: -3.25rem;
+        box-shadow: $shadow-light;   
+
+        &:focus {
+            width: 60%;
+            outline: none;
+             
+        }
+    }
+    &__input:focus + &__button {
+        background-color: $color-grey-light-2;
+    }
+
+    &__button {
+        padding: .4rem .6rem; 
+        cursor: pointer;
+        border: none;
+        background-color: $color-grey-light-2; 
+
+        &:focus {
+            outline: none;
+            background-color: $color-grey-light-3; 
+        }
+    } 
+}
+
+
+.back-col {
+    border: none;
+    background-color: $color-grey-light-2;  
+     
+}
+
+
+
+/* Checkbox */
+
+.filter-selection {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+
+    @include respond(tab-port) {
+        display: flex; 
+        flex-direction: initial;
+        justify-content: center;  
+    }
+}
+
+.checkbox {
+    display: none;
+  }
+  
+  .checkbox-label {
+    display: flex;
+    cursor: pointer;
+    align-items: center; 
+    margin-left: 2rem;
+    font-size: 1.5rem; 
+
+    &:not(:last-of-type) {
+        margin-bottom: 1.5rem; 
+    }
+
+    @include respond(tab-port) {
+        margin-bottom: 1.5rem;  
+    }
+  }
+   
+.checkbox-span {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid $color-primary-light;
+    border-radius: 6px;
+    display: inline-block;
+    margin-right: 2.5rem;
+    position: relative;
+  }
+  
+.checkbox-span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 4px;
+    background-color: $color-primary-dark; 
+    opacity: 0;
+    transition: all .3s ease; 
+  }
+  
+.checkbox:checked + .checkbox-label .checkbox-span::after {
+    opacity: 1;
+  }
+
+//project
+
+.project {
+    margin: 5rem;
+    background-color: $color-grey-light-2;
+    box-shadow: $shadow-light; 
+    padding: 2rem;
+    display: flex;
+
+    &__description {
+        margin-left: 2rem;
+    }
+
+    &__item {
+        width: 15rem;
+        height: auto;  
+        flex: 0 0 15rem;  
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+         
+    }
+
+}
+
+.heading-secondary {
+    font-size: 2.5rem;  
+    color: $color-grey-dark-1;
+    flex: 1; 
+    display: table;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+//progress
+
+.progress {
+    display: flex;
+    height: 2rem;
+    overflow: hidden;
+    font-size: 1.2rem;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+    flex-direction: column;
+    justify-content: end;
+    margin-top: 4rem;
+    box-shadow: $shadow-light;
+
+    &__bar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+        color: #fff;
+        text-align: center;
+        width: 25%;
+        background-color: $color-primary-light;   
+    }
+}
+
+//button
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 2rem;  
+}
+
+.button__fav {
+    border: none;
+    background-image: -webkit-gradient(linear, left top, right top, from(#f36), to(#ba265d));
+    background-image: linear-gradient(to right, #f36, #ba265d);
+    font-weight: 300;
+    font-size: 1.5rem;
+    border-radius: 100px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    padding: .3rem 2rem;
+    box-shadow: $shadow-light;
+}
+
+.button__apply {
+    border: none;
+    background-image: -webkit-gradient(linear, left top, right top, from(#f36), to(#ba265d));
+    background-image: linear-gradient(to right, #f36, #ba265d);
+    font-weight: 300;
+    font-size: 1.5rem;
+    border-radius: 100px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    padding: .3rem 2rem;
+    box-shadow: $shadow-light;
+}
